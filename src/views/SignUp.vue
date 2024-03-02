@@ -24,7 +24,7 @@
     <div class="hr">
         <hr>
     </div>
-    <h6>Already have an account?  <router-link to="/">Log in</router-link></h6>
+    <h6>Already have an account? <router-link to="/login">Log in</router-link></h6>
     <h6>Made By : Muhammad Abdullah Haider</h6>
 </template>
 
