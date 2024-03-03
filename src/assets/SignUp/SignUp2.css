@@ -47,7 +47,13 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 1vw;
 }
 button:hover {
   background-color: rgb(20, 36, 173);
+}
+
+.message {
+  margin-top: 1vw;
+  color: rgb(70, 112, 7);
 }

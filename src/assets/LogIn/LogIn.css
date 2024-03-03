@@ -42,3 +42,8 @@ img {
     background-color: rgb(20, 36, 173);
   }
 
+.message {
+  margin-top: 1vw;
+  color: rgb(70, 112, 7);
+  text-align: center;
+}
