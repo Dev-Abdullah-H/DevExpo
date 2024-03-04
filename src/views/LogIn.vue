@@ -24,9 +24,13 @@
 </template>
 
 <script setup>
-import "../assets/LogIn/LogIn.css";
+// import "../assets/LogIn/LogIn.css";
 import { ref, reactive } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
+
 
 let data = reactive({
   email: "",
@@ -40,8 +44,12 @@ const Login = async () => {
         "http://localhost:3000/signUpApi/login",
         data
       );
-      console.log(response);
-      if (response.status == 200) message.value = true;
+      console.log(response.data._id);
+      if (response.status == 200){
+        message.value = true;
+        localStorage.setItem('userData', JSON.stringify(response.data))
+        router.push(`/dashboard/${response.data._id}`);
+      }
     } catch (e) {
       console.log("User not found by abdullah", e);
     }
@@ -49,4 +57,55 @@ const Login = async () => {
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vw;
+    width: 5%;
+  }
+  h1, h4 {
+      text-align: center;
+      margin-top: 1vw;
+  }
+
+  .profile {
+    padding: 20px;
+  }
+
+  h2 {
+    font-weight: 200;
+    margin-bottom: 1vw;
+  }
+  input {
+    padding: 10px;
+    border: 1px solid rgb(158, 156, 156);
+    width: 15vw;
+    margin-bottom: 1vw;
+    border-radius: 5px;
+    outline: none;
+  }
+  button {
+    padding: 10px;
+    width: 7vw;
+    background-color: rgb(74, 90, 231);
+    font-weight: 300;
+    font-size: 15px;
+    color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: rgb(20, 36, 173);
+  }
+
+.message {
+  margin-top: 1vw;
+  color: rgb(70, 112, 7);
+  text-align: center;
+}
+
+</style>

@@ -31,3 +31,9 @@ const listen = () => {
 
 const SignUpRoute = require('./routes/SignUp.cjs')
 app.use('/signUpApi', SignUpRoute)
+
+const TodoRoute = require('./routes/Todo.cjs')
+app.use('/todoapi', TodoRoute)
+
+const PostRoute = require('./routes/Post.cjs')
+app.use('/postapi', PostRoute)

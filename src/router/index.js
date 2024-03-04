@@ -1,9 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import SignUp from "../views/SignUp.vue";
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/dashboard/:userId',
+      name: 'home',
+      component: () => import("../views/Home.vue"),
+      meta: { requiresAuth: true }
+    },
     {
       path: "/signup",
       name: "signup",
@@ -19,7 +26,24 @@ const router = createRouter({
       name: "login",
       component: () => import("../views/LogIn.vue"),
     },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: () => import('../views/NotFound.vue'),
+    },
   ],
+});
+
+
+// Authentication
+
+router.beforeEach((to, from, next) => {
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (userData) next()
+    else next('/login')
+  } else next()
+ 
 });
 
 export default router;
