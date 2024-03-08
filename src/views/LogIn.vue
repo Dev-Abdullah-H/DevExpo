@@ -2,7 +2,7 @@
   <img src="../assets/Logo.png" />
   <h1>Join the DEV Community</h1>
   <h4>DEV Community is a community of 1,296,722 amazing developers</h4>
-  <div class="container">
+  <div class="container mx-auto">
     <div class="profile">
       <h2>
         Email
@@ -17,7 +17,7 @@
     </div>
     <button @click="Login">Log in</button>
   </div>
-  <h6>New to DEV community?<router-link to="/signup">Sign up</router-link></h6>
+  <h6>New to DEV community?<router-link class="text-sky-800 underline" to="/signup">Sign up</router-link></h6>
   <div class="message" v-if="message">
     <p>Log in Successfull!</p>
   </div>

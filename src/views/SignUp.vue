@@ -1,9 +1,9 @@
 
 <template>
-  <img src="../assets/Logo.png" />
+  <img class="h-20 w-auto" src="../assets/Logo.png" />
   <h1>Join the DEV Community</h1>
   <h4>DEV Community is a community of 1,296,722 amazing developers</h4>
-  <div class="container">
+  <div class="container mx-auto">
     <div class="item" @click="redirect()">
       <i class="fa-brands fa-github fa-lg"></i>
       <h5>Sign up with GitHub</h5>
@@ -29,7 +29,7 @@
     <hr />
   </div>
   <h6>
-    Already have an account? <router-link to="/login">Log in</router-link>
+    Already have an account? <router-link class="text-sky-900 underline"  to="/">Log in</router-link>
   </h6>
   <h6>Made By : Muhammad Abdullah Haider</h6>
 </template>

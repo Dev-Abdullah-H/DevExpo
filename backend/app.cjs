@@ -3,11 +3,20 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const uri = require('./pass.cjs')
+const path = require('path');
 
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
+// 
+app.use(express.static(path.join(__dirname, '../dist')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist', 'index.html')); // Send the main HTML file
+});
+
+// 
 app.get('/', (req, res) => {
     res.send('Hello, this is Home')
 })

@@ -31,7 +31,10 @@
         </h2>
         <input type="text" v-model="data.password" />
       </div>
-      <button @click="SignUp">Sign up</button>
+      <div class="btns">
+        <button @click="redirect">Go Back</button>
+        <button @click="SignUp">Sign up</button>
+      </div>
       <div v-if="message" class="message">
         <p>Sign up Successfull!</p>
       </div>
@@ -75,6 +78,11 @@ const SignUp = async () => {
     }
   } else alert("Input field is missing! please fill it.");
 };
+
+
+const redirect = () => {
+  router.push({name : 'signup'})
+}
 
 </script>
 <style scoped>

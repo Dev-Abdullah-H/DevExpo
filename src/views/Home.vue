@@ -76,6 +76,9 @@ const createPost = async () => {
     console.log(response);
     await fetchPosts()
     showModal()
+    data.title = '' 
+    data.tags = ['', '', '']
+    
   } catch (e) {
     console.log(e);
   }

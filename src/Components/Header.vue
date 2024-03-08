@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container mx-auto min-w-full shadow-2xl">
     <div class="items">
       <img src="../assets/Logo.png" />
-      <input type="text" placeholder="Search..." v-model="todo.title" />
-      <button @click="showModal">Create Post</button>
+      <input class="outline-none border-2 p-3 w-80 mr-25vw border-slate-300 rounded-md " type="text" placeholder="Search..." v-model="todo.title" />
+      <button class=" border-2 rounded-lg text-cyan-50 bg-sky-500 p-3 outline-none hover:bg-sky-700" @click="showModal">Create Post</button>
       <i class="fa-regular fa-bell fa-lg"></i>
     </div>
   </div>
@@ -57,7 +57,7 @@ img {
   margin: auto;
   margin-right: 1vw;
 }
-input {
+/* input {
   position: relative;
   padding: 15px 30px 15px 15px;
   width: 20vw;
@@ -67,11 +67,11 @@ input {
   transition: border-color 0.3s ease;
   outline: none;
   font-size: 15px;
-}
-input:hover {
+} */
+/* input:hover {
   border-color: rgb(103, 104, 104);
-}
-button {
+} */
+/* button {
   padding: 10px;
   background-color: rgb(74, 90, 231);
   transition: background-color 0.3s ease;
@@ -84,7 +84,7 @@ button {
 }
 button:hover {
   background-color: rgb(20, 36, 173);
-}
+} */
 i {
   cursor: pointer;
 }
