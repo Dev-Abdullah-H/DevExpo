@@ -29,5 +29,4 @@ coverage
 
 *.tsbuildinfo
 # Pass
-backend/pass.cjs
 .env

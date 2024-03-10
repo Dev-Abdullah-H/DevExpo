@@ -17,7 +17,13 @@
     </div>
     <button @click="Login">Log in</button>
   </div>
-  <h6>New to DEV community?<router-link class="text-sky-800 underline" to="/signup">Sign up</router-link></h6>
+  <h6>
+    New to DEV community?<router-link
+      class="text-sky-800 underline"
+      to="/signup"
+      >Sign up</router-link
+    >
+  </h6>
   <div class="message" v-if="message">
     <p>Log in Successfull!</p>
   </div>
@@ -29,8 +35,7 @@ import { ref, reactive } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
 
-const router = useRouter()
-
+const router = useRouter();
 
 let data = reactive({
   email: "",
@@ -45,9 +50,9 @@ const Login = async () => {
         data
       );
       console.log(response.data._id);
-      if (response.status == 200){
+      if (response.status == 200) {
         message.value = true;
-        localStorage.setItem('userData', JSON.stringify(response.data))
+        localStorage.setItem("userData", JSON.stringify(response.data));
         router.push(`/dashboard/${response.data._id}`);
       }
     } catch (e) {
@@ -59,53 +64,53 @@ const Login = async () => {
 
 <style scoped>
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vw;
-    width: 5%;
-  }
-  h1, h4 {
-      text-align: center;
-      margin-top: 1vw;
-  }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vw;
+  width: 5%;
+}
+h1,
+h4 {
+  text-align: center;
+  margin-top: 1vw;
+}
 
-  .profile {
-    padding: 20px;
-  }
+.profile {
+  padding: 20px;
+}
 
-  h2 {
-    font-weight: 200;
-    margin-bottom: 1vw;
-  }
-  input {
-    padding: 10px;
-    border: 1px solid rgb(158, 156, 156);
-    width: 15vw;
-    margin-bottom: 1vw;
-    border-radius: 5px;
-    outline: none;
-  }
-  button {
-    padding: 10px;
-    width: 7vw;
-    background-color: rgb(74, 90, 231);
-    font-weight: 300;
-    font-size: 15px;
-    color: white;
-    border: 1px solid;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: rgb(20, 36, 173);
-  }
+h2 {
+  font-weight: 200;
+  margin-bottom: 1vw;
+}
+input {
+  padding: 10px;
+  border: 1px solid rgb(158, 156, 156);
+  width: 15vw;
+  margin-bottom: 1vw;
+  border-radius: 5px;
+  outline: none;
+}
+button {
+  padding: 10px;
+  width: 7vw;
+  background-color: rgb(74, 90, 231);
+  font-weight: 300;
+  font-size: 15px;
+  color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: rgb(20, 36, 173);
+}
 
 .message {
   margin-top: 1vw;
   color: rgb(70, 112, 7);
   text-align: center;
 }
-
 </style>

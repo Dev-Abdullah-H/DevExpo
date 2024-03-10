@@ -27,4 +27,16 @@ router.get('/getPosts', async(req, res) => {
   }
 })
 
+
+// Delete the todo
+router.delete('/deletePosts/:id', async(req, res) => {
+  const { id } = req.params
+  try {
+      const deletePost = await Post.findByIdAndDelete(id)
+      res.json({success: true, deletePost})
+  }catch (e) {
+      console
+  }
+});
+
 module.exports = router;
